@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>>Ponytail.Core</id>
+    <version>1.0.0.0</version>
+    <title>Ponytail.Core</title>
+    <authors>Jacob Ni</authors>
+    <owners>Jacob Ni</owners>
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The core functions for Ponytail</description>
+    <releaseNotes>add function that create shortcut</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>industry helper</tags>
+  </metadata>
+</package>

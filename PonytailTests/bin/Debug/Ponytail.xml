@@ -1,0 +1,740 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ponytail</name>
+    </assembly>
+    <members>
+        <member name="T:Ponytail.DataConvert.DataConvert">
+            <summary>
+            数据转换
+            </summary>
+        </member>
+        <member name="M:Ponytail.DataConvert.DataConvert.TwoIntToFloat(System.Int32[])">
+            <summary>
+            整型数组转浮点数，数据长度为2，低位在前，高位在后
+            例如：int[] p={ 0xCCCD, 0x4144}， 合并后为 0x4144CCCD，
+            转换为浮点数为12.3
+            </summary>
+            <param name="p">待转换的整型数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.DataConvert.DataConvert.GetBitFromByte(System.Byte,System.Int32)">
+            <summary>
+            Get bit from byte, convert it to bool.
+            </summary>
+            <param name="b">Source byte</param>
+            <param name="index">the index of bit in the source byte</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.Device.Ainuo.Item">
+            <summary>
+            测试项目
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.Item.WithstandVoltage">
+            <summary>
+            耐压
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.Item.Insulated">
+            <summary>
+            绝缘
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.Item.Interturn">
+            <summary>
+            匝间
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.Item.Resistance">
+            <summary>
+            电阻
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.Item.Inductance">
+            <summary>
+            电感
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Ainuo.State">
+            <summary>
+            获取数据状态
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.State.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.State.CheckFailed">
+            <summary>
+            校验失败
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Ainuo.State.DecodeFailed">
+            <summary>
+            解码失败
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Ainuo.StatorTester">
+            <summary>
+            定子综合测试仪，测试结果收取类
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.#ctor">
+            <summary>
+            构造器，手动设置串口参数和码的字符长度
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.#ctor(System.String,System.Int32)">
+            <summary>
+            构造器，串口默认参数：波特率=9600，数据位=8，无奇偶校验，停止位=1。
+            </summary>
+            <param name="portName">串口名称</param>
+            <param name="receiveTimeout">接收数据超时，单位毫秒</param>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.StatorTester.Port">
+            <summary>
+            通信串口
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.StatorTester.ReceiveTimeout">
+            <summary>
+            接收数据超时，单位毫秒
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.Open">
+            <summary>
+            打开串口
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.Close">
+            <summary>
+            关闭串口
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.GetInt(System.Byte[],System.Int32)">
+            <summary>
+            从字节数组中获取int，低索引存放高字节
+            </summary>
+            <param name="datas">字节数据</param>
+            <param name="startIndex">开始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.StatorTester.GetShort(System.Byte[],System.Int32)">
+            <summary>
+            从字节数组中获取short，低索引存放高字节
+            </summary>
+            <param name="datas">字节数据</param>
+            <param name="startIndex">开始位置</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.Device.Ainuo.StatorTester.DataReceivedEventHandler">
+            <summary>
+            收到数据委托
+            </summary>
+            <param name="result"></param>
+            <param name="state"></param>
+        </member>
+        <member name="E:Ponytail.Device.Ainuo.StatorTester.DataReceived">
+            <summary>
+            收到数据事件
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Ainuo.TestResult">
+            <summary>
+            定子综合测试结果类
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.IntegralTestResult">
+            <summary>
+            综合测试结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Resistance1">
+            <summary>
+            电阻
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceDeviation1">
+            <summary>
+            电阻项偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceGear1">
+            <summary>
+            电阻项挡位
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceResult1">
+            <summary>
+            电阻项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Resistance2">
+            <summary>
+            电阻
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceDeviation2">
+            <summary>
+            电阻项偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceGear2">
+            <summary>
+            电阻项挡位
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceResult2">
+            <summary>
+            电阻项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Resistance3">
+            <summary>
+            电阻
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceDeviation3">
+            <summary>
+            电阻项偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceGear3">
+            <summary>
+            电阻项挡位
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceResult3">
+            <summary>
+            电阻项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Resistance5">
+            <summary>
+            接地电阻
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceDeviation5">
+            <summary>
+            接地电阻项偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceGear5">
+            <summary>
+            接地电阻项挡位
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.ResistanceResult5">
+            <summary>
+            接地电阻项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Inductance1">
+            <summary>
+            电感
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceDeviation1">
+            <summary>
+            电感偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceResult1">
+            <summary>
+            电感项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Inductance2">
+            <summary>
+            电感
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceDeviation2">
+            <summary>
+            电感偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceResult2">
+            <summary>
+            电感项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.Inductance3">
+            <summary>
+            电感
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceDeviation3">
+            <summary>
+            电感偏差
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InductanceResult3">
+            <summary>
+            电感项结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InsulatedResistance">
+            <summary>
+            绝缘电阻
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InsulatedResistanceResult">
+            <summary>
+            绝缘结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.WithstandVoltage">
+            <summary>
+            耐压
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.WithstandVoltageResult">
+            <summary>
+            耐压结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnArea1">
+            <summary>
+            匝间实测面积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnDifferentialArea1">
+            <summary>
+            匝间实测差积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnResult1">
+            <summary>
+            匝间结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnArea2">
+            <summary>
+            匝间实测面积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnDifferentialArea2">
+            <summary>
+            匝间实测差积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnResult2">
+            <summary>
+            匝间结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnArea3">
+            <summary>
+            匝间实测面积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnDifferentialArea3">
+            <summary>
+            匝间实测差积
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.InterturnResult3">
+            <summary>
+            匝间结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.TurnDirection">
+            <summary>
+            旋向，0=不转，1=顺转，2=逆转
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Ainuo.TestResult.TurnDirectionResult">
+            <summary>
+            旋向结果，0x5A=合格，0xA5=不合格，0x00=测试尚未结束
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Ainuo.TestResult.ToString">
+            <summary>
+            获取结果数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.Device.Atlas.Screwdriver">
+            <summary>
+            阿特拉斯螺丝枪驱动器通信类
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.#ctor(System.String,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ip">螺丝枪驱动器IP</param>
+            <param name="port">螺丝枪驱动器端口</param>
+        </member>
+        <member name="P:Ponytail.Device.Atlas.Screwdriver.Client">
+            <summary>
+            通信客户端
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.Receive">
+            <summary>
+            从服务端接收数据
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.ExtractData">
+            <summary>
+            提取数据，并调用解析程序
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.Decode">
+            <summary>
+            解析数据，并调用事件处理程序
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Atlas.Screwdriver.IP">
+            <summary>
+            螺丝枪驱动器IP
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.Atlas.Screwdriver.Port">
+            <summary>
+            螺丝枪驱动器端口
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.Connect">
+            <summary>
+            连接
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.Disconnect">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Atlas.Screwdriver.ScrewEventHandler">
+            <summary>
+            接收到数据委托
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="E:Ponytail.Device.Atlas.Screwdriver.Screw">
+            <summary>
+            拧螺丝事件
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Atlas.Screwdriver.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Atlas.Screwdriver.Result.Torque">
+            <summary>
+            扭矩
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Atlas.Screwdriver.Result.Angle">
+            <summary>
+            转角
+            </summary>
+        </member>
+        <member name="F:Ponytail.Device.Atlas.Screwdriver.Result.Qualified">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Atlas.Screwdriver.Result.ToString">
+            <summary>
+            获取结果字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.Device.CodeScanner.CodeScanner">
+            <summary>
+            扫码枪类，通过串口通信，串口默认参数：波特率=9600，数据位=8，无奇偶校验，停止位=1。
+            扫描到的码为16进制的ASCII码。
+            扫码枪获取到码后会自动发送数据，触发扫码完成事件。
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.CodeScanner.CodeScanner.#ctor">
+            <summary>
+            构造器，手动设置串口参数和码的字符长度
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.CodeScanner.CodeScanner.#ctor(System.String,System.Int32)">
+            <summary>
+            构造器，串口默认参数：波特率=9600，数据位=8，无奇偶校验，停止位=1。
+            </summary>
+            <param name="portName">串口名称</param>
+            <param name="charCount">扫描码的固定字符数</param>
+        </member>
+        <member name="P:Ponytail.Device.CodeScanner.CodeScanner.Port">
+            <summary>
+            扫码枪通信串口
+            </summary>
+        </member>
+        <member name="P:Ponytail.Device.CodeScanner.CodeScanner.CharCount">
+            <summary>
+            码的字符长度
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.CodeScanner.CodeScanner.Open">
+            <summary>
+            打开串口
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.CodeScanner.CodeScanner.Close">
+            <summary>
+            关闭串口
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.CodeScanner.CodeScanner.DiscardInBuffer">
+            <summary>
+            清空接收缓冲区
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.CodeScanner.CodeScanner.DataReceivedEventHandler">
+            <summary>
+            收到数据委托
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="E:Ponytail.Device.CodeScanner.CodeScanner.DataReceived">
+            <summary>
+            扫码事件
+            </summary>
+        </member>
+        <member name="T:Ponytail.Device.Inovance.PLC.H3U">
+            <summary>
+            汇川H3U PLC 地址转换类（Modbus TCP 通信）
+            </summary>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.M(System.UInt16)">
+            <summary>
+            M0-M7679和M8000-M8511
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.SM(System.UInt16)">
+            <summary>
+            SM0_SM1023
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.S(System.UInt16)">
+            <summary>
+            S0-S4095
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.CoilT(System.UInt16)">
+            <summary>
+            T0-T511，线圈
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.CoilC(System.UInt16)">
+            <summary>
+            C0-C255，线圈
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.X(System.UInt16)">
+            <summary>
+            X0-X377
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.Y(System.UInt16)">
+            <summary>
+            Y0-Y377
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.D(System.UInt16)">
+            <summary>
+            D0-D8511
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.SD(System.UInt16)">
+            <summary>
+            SD0-SD1023
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.R(System.UInt16)">
+            <summary>
+            R0-R32767
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.RegisterT(System.UInt16)">
+            <summary>
+            R0-R32767，寄存器
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.Device.Inovance.PLC.H3U.RegisterC(System.UInt16)">
+            <summary>
+            C0-M199和C200-C255
+            </summary>
+            <param name="number">编号</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.Encryption.SimpleAes">
+            <summary>
+            简单AES 加密解密类
+            </summary>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.#ctor(System.Byte[],System.Byte[])">
+            <summary>
+            构造器
+            </summary>
+            <param name="key">密钥字节数组，16个字节</param>
+            <param name="iv">初始化向量字节数组，16个字节</param>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.#ctor(System.String,System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="key">密钥字符串，16个字符</param>
+            <param name="iv">初始化向量字符串，16个字符</param>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.EncryptToBytes(System.String)">
+            <summary>
+            字符串加密成字节数组
+            </summary>
+            <param name="plainText">明文</param>
+            <returns>加密字节数组</returns>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.EncryptToString(System.String)">
+            <summary>
+            字符串加密成字符串
+            </summary>
+            <param name="plainText">明文</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.DecryptFromBytes(System.Byte[])">
+            <summary>
+            加密字节数组解密成字符串
+            </summary>
+            <param name="cipherText">密文字节数组</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Ponytail.Encryption.SimpleAes.DecryptFromString(System.String)">
+            <summary>
+            字符串解密成字符串
+            </summary>
+            <param name="cipherText">密文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.UI.WPF.Animation.RandomJitterEase">
+            <summary>
+            随机跳动动画
+            </summary>
+        </member>
+        <member name="P:Ponytail.UI.WPF.Animation.RandomJitterEase.Jitter">
+            <summary>
+            The amount of jitter 0~2000.
+            </summary>
+        </member>
+        <member name="F:Ponytail.UI.WPF.Animation.RandomJitterEase.JitterProperty">
+            <summary>
+            The amount of jitter
+            </summary>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Animation.RandomJitterEase.CreateInstanceCore">
+            <summary>
+            Create instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Animation.RandomJitterEase.EaseInCore(System.Double)">
+            <summary>
+            Perform easing
+            </summary>
+            <param name="normalizedTime">Normalized time</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ponytail.UI.WPF.MvvmLightEx.Message.PackageMessage">
+            <summary>
+            带一个参数的消息
+            </summary>
+        </member>
+        <member name="M:Ponytail.UI.WPF.MvvmLightEx.Message.PackageMessage.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="msg">消息</param>
+        </member>
+        <member name="P:Ponytail.UI.WPF.MvvmLightEx.Message.PackageMessage.Package">
+            <summary>
+            携带的参数或返回值
+            </summary>
+        </member>
+        <member name="T:Ponytail.UI.WPF.Splasher`1">
+            <summary>
+            显示和关闭窗体的辅助类
+            </summary>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Splasher`1.ShowSplash">
+            <summary>
+            打开启动窗体
+            </summary>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Splasher`1.CloseSplash">
+            <summary>
+            关闭启动窗体
+            </summary>
+        </member>
+        <member name="T:Ponytail.UI.WPF.Toast">
+            <summary>
+            提示小窗体，自动消失
+            </summary>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Toast.#ctor(System.String,Ponytail.UI.WPF.Toast.Length,System.String,System.Int32,System.Windows.Media.Brush)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="msg">消息</param>
+            <param name="length">显示时间</param>
+            <param name="fanilyName">字体</param>
+            <param name="fontSize">字体大小</param>
+            <param name="brush">画刷</param>
+        </member>
+        <member name="M:Ponytail.UI.WPF.Toast.Show">
+            <summary>
+            显示提示窗体
+            </summary>
+        </member>
+        <member name="T:Ponytail.UI.WPF.Toast.Length">
+            <summary>
+            显示时间长度
+            </summary>
+        </member>
+        <member name="F:Ponytail.UI.WPF.Toast.Length.Short">
+            <summary>
+            500ms
+            </summary>
+        </member>
+        <member name="F:Ponytail.UI.WPF.Toast.Length.Normal">
+            <summary>
+            1000ms
+            </summary>
+        </member>
+        <member name="F:Ponytail.UI.WPF.Toast.Length.Long">
+            <summary>
+            2000ms
+            </summary>
+        </member>
+    </members>
+</doc>

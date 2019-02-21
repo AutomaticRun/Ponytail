@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ponytail.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Ponytail.Core.Diagnostics.PerformanceTimer">
+            <summary>
+            High accuracy timer
+            </summary>
+        </member>
+        <member name="M:Ponytail.Core.Diagnostics.PerformanceTimer.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Ponytail.Core.Diagnostics.PerformanceTimer.Start">
+            <summary>
+            Start count
+            </summary>
+        </member>
+        <member name="P:Ponytail.Core.Diagnostics.PerformanceTimer.Elapsed">
+            <summary>
+            Elapsed time
+            </summary>
+        </member>
+        <member name="P:Ponytail.Core.Diagnostics.PerformanceTimer.ElapsedSeconds">
+            <summary>
+            Elapsed seconds
+            </summary>
+        </member>
+        <member name="P:Ponytail.Core.Diagnostics.PerformanceTimer.ElapsedMilliseconds">
+            <summary>
+            Elapsed milliseconds
+            </summary>
+        </member>
+        <member name="T:Ponytail.Core.FileSystem.File">
+            <summary>
+            File helper
+            </summary>
+        </member>
+        <member name="M:Ponytail.Core.FileSystem.File.CreateShortcut(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Create Windows Shorcut
+            </summary>
+            <param name="sourceFile">A file you want to make shortcut to</param>
+            <param name="shortcutFile">Path and shorcut file name including file extension (.lnk)</param>
+            <param name="description">Shortcut description</param>
+            <param name="arguments">Command line arguments</param>
+            <param name="hotKey">Shortcut hot key as a string, for example "Ctrl+F"</param>
+            <param name="icon">shortcut icon file path</param>
+            <param name="workingDirectory">"Start in" shorcut parameter</param>
+        </member>
+        <member name="T:Ponytail.Core.Signal">
+            <summary>
+            Signal class, it can detect rising edge and falling edge.
+            </summary>
+        </member>
+        <member name="P:Ponytail.Core.Signal.OldState">
+            <summary>
+            The old state of signal.
+            </summary>
+        </member>
+        <member name="P:Ponytail.Core.Signal.NewState">
+            <summary>
+            The new state of signal.
+            </summary>
+        </member>
+        <member name="M:Ponytail.Core.Signal.Update(System.Boolean)">
+            <summary>
+            Update the state of signal.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="P:Ponytail.Core.Signal.State">
+            <summary>
+            Signal state.
+            </summary>
+        </member>
+        <member name="T:Ponytail.Core.Edge">
+            <summary>
+            沿
+            </summary>
+        </member>
+        <member name="F:Ponytail.Core.Edge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:Ponytail.Core.Edge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="F:Ponytail.Core.Edge.True">
+            <summary>
+            真
+            </summary>
+        </member>
+        <member name="F:Ponytail.Core.Edge.False">
+            <summary>
+            假
+            </summary>
+        </member>
+    </members>
+</doc>

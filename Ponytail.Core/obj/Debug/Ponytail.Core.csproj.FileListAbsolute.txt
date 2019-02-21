@@ -1,0 +1,8 @@
+E:\工作\项目\公共\Ponytail.Core\bin\Debug\Ponytail.Core.xml
+E:\工作\项目\公共\Ponytail.Core\bin\Debug\Ponytail.Core.dll
+E:\工作\项目\公共\Ponytail.Core\bin\Debug\Ponytail.Core.pdb
+E:\工作\项目\公共\Ponytail.Core\obj\Debug\Interop.IWshRuntimeLibrary.dll
+E:\工作\项目\公共\Ponytail.Core\obj\Debug\Ponytail.Core.csproj.ResolveComReference.cache
+E:\工作\项目\公共\Ponytail.Core\obj\Debug\Ponytail.Core.csproj.CoreCompileInputs.cache
+E:\工作\项目\公共\Ponytail.Core\obj\Debug\Ponytail.Core.dll
+E:\工作\项目\公共\Ponytail.Core\obj\Debug\Ponytail.Core.pdb

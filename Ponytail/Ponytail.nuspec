@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Ponytail</id>
+    <version>1.0.2.1</version>
+    <title>Ponytail</title>
+    <authors>Jacob Ni</authors>
+    <owners>Jacob Ni</owners>
+    <licenseUrl>https://github.com/WindseekerSilent/Ponytail/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/WindseekerSilent/Ponytail</projectUrl>
+    <iconUrl>https://github.com/WindseekerSilent/Ponytail/blob/master/Image/PaperPlane.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>工控软件WPF辅助</description>
+    <releaseNotes>添加从字节中获取位，转换为bool类型的静态方法</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>工控 WPF 通信 数据转换</tags>
+  </metadata>
+</package>
